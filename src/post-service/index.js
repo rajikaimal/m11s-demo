@@ -8,9 +8,9 @@ const post = require("./post");
 db.connectMongo();
 app.use(bodyParser.json());
 
-app.get("/api/v1", (req, res) => {
+app.get("/api/v1", async (req, res) => {
 	try {
-		const posts = post.getPosts();
+		const posts = await post.getPosts();
 
 		res.json({
 			status: true,
@@ -24,10 +24,10 @@ app.get("/api/v1", (req, res) => {
 	}
 });
 
-app.post("/api/v1", (req, res) => {
+app.post("/api/v1", async (req, res) => {
 	try {
 		const newPost = req.body;
-		const createdPost = post.createPost(newPost);
+		const createdPost = await post.createPost(newPost);
 		res.json({
 			status: true,
 			createdPost

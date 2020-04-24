@@ -3,12 +3,24 @@ const mongoose = require("mongoose");
 const Post = mongoose.model('Post', postSchema);
 
 const getPosts = async () => {
-	const allPosts = await Post.find({});
-	return allPosts;
+	try {
+		const allPosts = await Post.find({});
+		const returnPosts = allPosts.map(post => {
+			return {
+				title: post.title,
+				date: post.date,
+				content: post.content
+			}	
+		});
+
+		return returnPosts;
+	}
+	catch(ex) {
+		return ex;
+	}
 }
 
 const createPost = async (newPost) => {
-	console.log(newPost);
 	try {
 		const newPostToSave = new Post({
 			title: newPost.title,
