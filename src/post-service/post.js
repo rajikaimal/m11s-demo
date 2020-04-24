@@ -27,7 +27,7 @@ const createPost = async (newPost) => {
 	}
 }
 
-const updatePost = async (pdatePost) => {
+const updatePost = async (updatePost) => {
 	try {
 		const res = await Post.updateOne({
    		_id: updatePost.id
@@ -41,7 +41,6 @@ const updatePost = async (pdatePost) => {
 }
 
 const deletePost = async (post) => {
-	console.log(post)
 	try {
 		const res = await Post.deleteOne({ _id: post });
 		return res;

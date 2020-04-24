@@ -40,12 +40,13 @@ app.post("/api/v1", async (req, res) => {
 	}
 });
 
-app.put("/api/v1", (req, res) => {
+app.put("/api/v1", async (req, res) => {
 	try {
 		const post = req.body;
-		const deleted = post.deletePost(post);
+		const updatedPost = await post.updatePost(post);
 		res.json({
-			status: true
+			status: true,
+			updatedPost 
 		});
 	}
 	catch(ex) {
@@ -55,10 +56,10 @@ app.put("/api/v1", (req, res) => {
 	}
 });
 
-app.delete("/api/v1", (req, res) => {
+app.delete("/api/v1", async (req, res) => {
 	try {
 		const postId = req.body._id;
-		const deleted = post.deletePost(postId);
+		const deleted = await post.deletePost(postId);
 		res.json({
 			status: true
 		});
