@@ -41,15 +41,33 @@ app.post("/api/v1", async (req, res) => {
 });
 
 app.put("/api/v1", (req, res) => {
-	res.json({
-		status: true
-	});
+	try {
+		const post = req.body;
+		const deleted = post.deletePost(post);
+		res.json({
+			status: true
+		});
+	}
+	catch(ex) {
+		res.json({
+			status: false
+		});
+	}
 });
 
 app.delete("/api/v1", (req, res) => {
-	res.json({
-		status: true
-	});
+	try {
+		const postId = req.body._id;
+		const deleted = post.deletePost(postId);
+		res.json({
+			status: true
+		});
+	}
+	catch(ex) {
+		res.json({
+			status: false
+		});
+	}
 });
 
 
