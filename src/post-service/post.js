@@ -16,6 +16,7 @@ const createPost = async (newPost) => {
 	try {
 		const newPostToSave = new Post({
 			title: newPost.title,
+			category: newPost.category
 			date: new Date(),
 			content: newPost.content
 		});	
