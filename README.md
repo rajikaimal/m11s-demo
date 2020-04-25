@@ -1,6 +1,6 @@
 # over-complicated-blog
 
-![Node.js CI](https://github.com/rajikaimal/over-complicated-blog/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/rajikaimal/over-complicated-blog/workflows/Node.js%20CI/badge.svg) ![Go](https://github.com/rajikaimal/over-complicated-blog/workflows/Go/badge.svg)
 
 Simple blog yet with an over complicated microservices architecture
 
