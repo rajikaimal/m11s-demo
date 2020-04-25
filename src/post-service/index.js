@@ -42,8 +42,8 @@ app.post("/api/v1", async (req, res) => {
 
 app.put("/api/v1", async (req, res) => {
 	try {
-		const post = req.body;
-		const updatedPost = await post.updatePost(post);
+		const updatePost = req.body;
+		const updatedPost = await post.updatePost(updatePost);
 		res.json({
 			status: true,
 			updatedPost 

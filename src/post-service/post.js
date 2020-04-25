@@ -27,15 +27,17 @@ const createPost = async (newPost) => {
 	}
 }
 
-const updatePost = async (updatePost) => {
+const updatePost = async (updatedPost) => {
 	try {
+		console.log(updatedPost)
 		const res = await Post.updateOne({
-   		_id: updatePost.id
-		}, { content: updatePost.content }, { upsert: true });
+   		_id: updatedPost._id
+		}, { $set : { content: updatedPost.content } }, { upsert: true });
 
 		return res;
 	}
 	catch(ex) {
+		console.log(ex)
 		return ex;
 	}
 }
