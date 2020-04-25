@@ -1,4 +1,4 @@
-# post-service
+# comment-service
 
 ## Install
 
@@ -10,6 +10,6 @@ $ PORT=XXX dbConnection=XXX node index.js
 ### Docker
 
 ```
-$ docker build -t post-service
-$ docker run -d -it -p 80:PORT post-service
+$ docker build -t comment-service
+$ docker run -d -it -p 80:PORT comment-service
 ```
