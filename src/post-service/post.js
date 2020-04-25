@@ -29,7 +29,6 @@ const createPost = async (newPost) => {
 
 const updatePost = async (updatedPost) => {
 	try {
-		console.log(updatedPost)
 		const res = await Post.updateOne({
    		_id: updatedPost._id
 		}, { $set : { content: updatedPost.content } }, { upsert: true });
@@ -37,7 +36,6 @@ const updatePost = async (updatedPost) => {
 		return res;
 	}
 	catch(ex) {
-		console.log(ex)
 		return ex;
 	}
 }
