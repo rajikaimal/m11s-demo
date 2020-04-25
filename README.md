@@ -1,5 +1,7 @@
 # over-complicated-blog
 
+![Node.js CI](https://github.com/rajikaimal/over-complicated-blog/workflows/Node.js%20CI/badge.svg)
+
 Simple blog yet with an over complicated microservices architecture
 
 ![alt text](/docs/over-complicated-blog.png "architecture diagram")
