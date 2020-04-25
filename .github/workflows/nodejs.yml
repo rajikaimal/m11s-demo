@@ -27,11 +27,11 @@ jobs:
 
     - name: "Run post-service build"
       working-directory: ./src/post-service
-      run: npm ci && npm run build
+      run: npm ci && npm test
 
     - name: "Run comment-service build"
       working-directory: ./src/comment-service
-      run: npm ci && npm run build
+      run: npm ci && npm test
 
       env:
         CI: true
