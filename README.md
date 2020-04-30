@@ -10,6 +10,7 @@ Simple blog yet with an over complicated microservices architecture
 
 - AWS API gateway
 - AWS EC2
+- AWS SQS
 - MongoDB on AWS
 - Redis
 
