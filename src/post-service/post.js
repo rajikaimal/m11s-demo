@@ -12,6 +12,16 @@ const getPosts = async () => {
 	}
 }
 
+const getPost = async (id) => {
+	try {
+		const post = await Post.find({ _id: id });
+		return post;
+	}
+	catch(ex) {
+		return ex;
+	}
+}
+
 const createPost = async (newPost) => {
 	try {
 		const newPostToSave = new Post({
@@ -53,6 +63,7 @@ const deletePost = async (post) => {
 
 module.exports = {
 	getPosts,
+	getPost,
 	createPost,
 	updatePost,
 	deletePost

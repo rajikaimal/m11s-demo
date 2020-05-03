@@ -24,6 +24,24 @@ app.get("/api/v1", async (req, res) => {
 	}
 });
 
+app.get("/api/v1/:postId", async (req, res) => {
+	try {
+		const postId = req.query.postId;
+		const post = await post.getPost(postId);
+
+		res.json({
+			status: true,
+			post
+		});
+	}
+	catch(ex) {
+		res.json({
+			status: false
+		});
+	}
+});
+
+
 app.post("/api/v1", async (req, res) => {
 	try {
 		const newPost = req.body;
