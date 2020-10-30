@@ -1,16 +1,16 @@
-const express = require("express");
-const bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const db = require("./db");
-const post = require("./post");
+const db = require('./db');
+const post = require('./post');
 
 db.connectMongo();
 app.use(bodyParser.json());
 
-app.get("/api/v1", async (req, res) => {
+app.get('/api/v1', async (req, res) => {
   try {
-    	const posts = await post.getPosts();
+    const posts = await post.getPosts();
 
     res.json({
       status: true,
@@ -23,7 +23,7 @@ app.get("/api/v1", async (req, res) => {
   }
 });
 
-app.get("/api/v1/:postId", async (req, res) => {
+app.get('/api/v1/:postId', async (req, res) => {
   try {
     const postId = req.query.postId;
     const post = await post.getPost(postId);
@@ -39,7 +39,7 @@ app.get("/api/v1/:postId", async (req, res) => {
   }
 });
 
-app.post("/api/v1", async (req, res) => {
+app.post('/api/v1', async (req, res) => {
   try {
     const newPost = req.body;
     const createdPost = await post.createPost(newPost);
@@ -54,7 +54,7 @@ app.post("/api/v1", async (req, res) => {
   }
 });
 
-app.put("/api/v1", async (req, res) => {
+app.put('/api/v1', async (req, res) => {
   try {
     const updatePost = req.body;
     const updatedPost = await post.updatePost(updatePost);
@@ -69,7 +69,7 @@ app.put("/api/v1", async (req, res) => {
   }
 });
 
-app.delete("/api/v1", async (req, res) => {
+app.delete('/api/v1', async (req, res) => {
   try {
     const postId = req.body._id;
     const deleted = await post.deletePost(postId);
@@ -83,6 +83,6 @@ app.delete("/api/v1", async (req, res) => {
   }
 });
 
-app.listen(PORT, (err) => {
+app.listen(PORT, err => {
   if (!err) console.log(`Post service running ${PORT}`);
 });
